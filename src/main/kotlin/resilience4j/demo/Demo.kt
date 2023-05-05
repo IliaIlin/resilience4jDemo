@@ -11,8 +11,8 @@ class Demo {
 
     fun setupRateLimiter(): RateLimiter {
         val config = RateLimiterConfig.custom()
-            .limitRefreshPeriod(Duration.ofSeconds(1))
-            .limitForPeriod(2)
+            .limitRefreshPeriod(Duration.ofSeconds(3))
+            .limitForPeriod(1)
             .build()
 
         val rateLimiterRegistry = RateLimiterRegistry.of(config)
