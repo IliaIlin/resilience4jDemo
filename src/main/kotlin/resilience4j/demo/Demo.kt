@@ -20,8 +20,12 @@ class Demo {
     }
 
     fun externalCallToGetExchangeRate(currencyPair: String) {
-        val response = khttp.get(FOREX_API_BASE_URL, params = mapOf("pairs" to currencyPair)).text
-        logger.info(currencyPair + " " + response.split("rate\":")[1].split(",")[0])
+        val response = khttp.get(
+            url = FOREX_API_BASE_URL,
+            params = mapOf("pairs" to currencyPair)
+        ).text
+        val parsedRateFromResponse = response.split("rate\":")[1].split(",")[0]
+        logger.info("$currencyPair $parsedRateFromResponse")
     }
 
     companion object {
